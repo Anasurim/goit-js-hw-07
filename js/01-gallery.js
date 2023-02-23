@@ -1,5 +1,4 @@
 import { galleryItems } from "./gallery-items.js";
-// Change code below this line
 
 console.log(galleryItems);
 
@@ -34,8 +33,3 @@ galleryRef.onclick = (e) => {
     )
     .show();
 };
-
-// galleryRef.addEventListener("mouseenter", (e) => {
-//   console.log(e.currentTarget);
-//   e.currentTarget.style.cursor = "pointer";
-// });
