@@ -16,3 +16,15 @@ const galleryMarkup = galleryItems.map(
 );
 
 galleryRef.insertAdjacentHTML("afterbegin", galleryMarkup.join(""));
+
+const lightbox = new SimpleLightbox(".gallery a", {
+  enableKeyboard: true,
+  captions: true,
+  captionsSelector: "img",
+  captionType: "attr",
+  captionsData: "alt",
+  captionPosition: "bottom",
+  captionDelay: 250,
+});
+
+lightbox.show();
