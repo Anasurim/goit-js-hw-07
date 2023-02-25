@@ -24,12 +24,42 @@ galleryRef.onclick = (e) => {
   }
   e.preventDefault();
 
-  basicLightbox
-    .create(
-      `<img
-            class="gallery__image"
-            src="${e.target.dataset.source}"
-        />`
-    )
-    .show();
+  const modalImgMarkup = `<img
+  class="gallery__image"
+  src="${e.target.dataset.source}"
+  />`;
+  const instance = basicLightbox.create(modalImgMarkup);
+
+  instance.show();
+
+  if (instance.visible()) {
+    window.addEventListener("keydown", (e) => {
+      if (e.code === "Escape") {
+        instance.close();
+      } else {
+        window.removeEventListener("keydown", () => {
+          if (e.code === "Escape") {
+            instance.close();
+          }
+        });
+      }
+    });
+  }
 };
+
+// {
+//     onShow: (instance) =>
+//       window.addEventListener("keydown", (e) => {
+//         if (e.code === "Escape") {
+//           instance.close();
+//           console.log("onShow", instance);
+//         }
+//       }),
+//     onClose: (instance) =>
+//       window.removeEventListener("keydown", (e) => {
+//         if (e.code === "Escape") {
+//           instance.close();
+//           console.log("onClose", instance);
+//         }
+//       }),
+//   }
